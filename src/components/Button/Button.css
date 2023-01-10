@@ -1,0 +1,22 @@
+.Button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 38px;
+    cursor: pointer;
+    color: white;
+}
+
+.Button_add {
+    background-color: blue;
+}
+
+.Button_remove {
+    background-color: red;
+    width: 85px;
+}
+
+.Button_edit {
+    background-color: black;
+    width: 60px;
+}
