@@ -1,0 +1,32 @@
+.ContactForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.ContactForm__header {
+    color: rgb(1, 118, 202);
+}
+
+.ContactType {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    
+}
+
+.ContactType__fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+}
+
+.ContactType__radio {
+    display: flex;
+    align-items: center;
+}
