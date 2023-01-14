@@ -9,11 +9,9 @@ export const ContactListContainer = () => {
         <ContactList 
         items={state.items}
         onRemove={(id) => dispatch({ type: actionType.remove, payload: id})}
-        onEdit={(id, title) => {
-            const text = prompt('Введите новое название', title);
-            if (text) {
-                dispatch({ type: actionType.edit, payload: { id, title: text }})
-            }
-        }}/>
+        onEdit={(id) => { 
+                dispatch({ type: actionType.setCurrentCard, payload: id })
+        }}
+        />
     )
 }

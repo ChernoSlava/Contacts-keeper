@@ -4,10 +4,10 @@ import { ContactsKeeperContext } from "@contexts";
 import styles from './App.css';
 
 import { ContactFormContainer, ContactListContainer } from '@containers';
-import { ContactsKeeperListReducer, InitialContactsKeeperList } from './store';
+import { ContactsKeeperReducer, InitialContactsKeeper } from './store';
 
 export const App = () => {
-    const [ state, dispatch ] = useReducer(ContactsKeeperListReducer, InitialContactsKeeperList);
+    const [ state, dispatch ] = useReducer(ContactsKeeperReducer, InitialContactsKeeper);
     
     return(
         <ContactsKeeperContext.Provider value={{

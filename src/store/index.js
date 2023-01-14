@@ -1,1 +1,1 @@
-export { ContactsKeeperListReducer, InitialContactsKeeperList } from './contactsKeeperReducer';
+export { ContactsKeeperReducer, InitialContactsKeeper } from './contactsKeeperReducer';
