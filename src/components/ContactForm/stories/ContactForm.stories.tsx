@@ -1,18 +1,21 @@
-import React from "react";
-import { ContactForm } from "..";
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { ContactForm } from '..';
 
 export default {
-    title: "Example/ContactForm",
-    component: ContactForm,
-    argTypes: { onChange: { action: 'clicked' }},
-}
+  title: 'Example/ContactForm',
+  component: ContactForm,
+  argTypes: { onChange: { action: 'clicked' } },
+} as ComponentMeta<typeof ContactForm>;
 
-const Template = args => <ContactForm {...args} />
+const Template: ComponentStory<typeof ContactForm> = args => (
+  <ContactForm {...args} />
+);
 
 export const Playground = Template.bind({});
 
 Playground.args = {
-    type: 'text',
-    placeholder: 'name',
-
-}
+  type: 'text',
+  placeholder: 'name',
+};

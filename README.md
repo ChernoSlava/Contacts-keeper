@@ -18,7 +18,8 @@
 - Babel,
 - StoryBook,
 - TypeScript,
-- StyledComponents;
+- StyledComponents,
+- ESLint;
 
 ---
 ## Установка и запуск
