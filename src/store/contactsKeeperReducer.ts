@@ -1,14 +1,14 @@
-import { actionType } from '@constants';
+import { ContactKeeperStateType, Action, ActionKind } from '@types';
 
-export const ContactsKeeperReducer = (state, action) => {
+export const ContactsKeeperReducer = (state: ContactKeeperStateType, action: Action) => {
     const { type, payload } = action;
 
     switch (type) {
         //dispatch({type: 'EDIT', payload: { id: 1, name, email, phone, type }})
-        case actionType.edit:{
+        case ActionKind.edit:{
             return {
                 ...state,
-                items: state.items.map(x => ({
+                items: state.items.map((x: { id: number; }) => ({
                     ...x,
                     ...x.id === payload.id ? {...payload} : x
                 })),
@@ -16,15 +16,15 @@ export const ContactsKeeperReducer = (state, action) => {
             };
         }
         //dispatch({type: 'SET_CURRENT_CARD', payload: 1 })
-        case actionType.setCurrentCard: {
+        case ActionKind.setCurrentCard: {
             return {
                 ...state,
-                currentCard: state.items.find(x => x.id === payload)
+                currentCard: state.items.find((x: { id: number; }) => x.id === payload)
             };
         }
 
         //dispatch({type: 'CLEAR_CURRENT_CARD' })
-        case actionType.clearCurrentCard: {
+        case ActionKind.clearCurrentCard: {
             return {
                 ...state,
                 currentCard: null
@@ -33,16 +33,16 @@ export const ContactsKeeperReducer = (state, action) => {
         
         
         //dispatch({type: 'REMOVE', payload: 1 })
-        case actionType.remove: {
+        case ActionKind.remove: {
             return {
                 ...state,
                 // 1, 2, 3 => 2, 3
-                items: state.items.filter(x => x.id !== payload)
+                items: state.items.filter((x: { id: number; }) => x.id !== payload)
 
             };
         }
         //dispatch({type: 'ADD', payload: { name, email, phone, type, id: 1, }})
-        case actionType.add: {
+        case ActionKind.add: {
             return {
                 ...state,
                 items: [
@@ -62,7 +62,7 @@ export const ContactsKeeperReducer = (state, action) => {
 }
 
 
-export const InitialContactsKeeper = {
+export const InitialContactsKeeper: ContactKeeperStateType = {
     //Список контактов
     // {name, email, phone, type, id}
     items: [],

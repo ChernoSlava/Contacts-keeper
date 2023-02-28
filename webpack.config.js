@@ -1,32 +1,33 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const createStyledComponentsTransformer =
+  require('typescript-plugin-styled-components').default;
+
+const styledComponentsTransformer = createStyledComponentsTransformer({
+  ssr: false,
+  displayName: true,
+  componentIdPrefix: 'counter',
+});
+
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
-    entry: path.resolve(__dirname, './index.js'),
+    entry: path.resolve(__dirname, './index.tsx'),
     module: {
         rules: [{
-           test: /\.(js|jsx)$/,
-           use: ['babel-loader'],
-           exclude: "/node_modules/",
+           test: /\.(js|ts|jsx|tsx)$/,
+           use: {
+            loader: 'ts-loader',
+            options: {
+              getCustomTransformers: () => ({
+                before: [styledComponentsTransformer],
+              }),
+            },
+          },
+          exclude: /node_modules/,
         },
-        {
-            test: /\.css$/,
-            use: [
-                "style-loader",
-                {
-                    loader: "css-loader",
-                    options: {
-                        modules: {
-                            localIdentName: "[name]__[local]__[hash:base64:5]"
-                        },
-                    }
-                }
-                
-            ]
-        }
-    ]
+      ],
     },
     output: { 
         path: path.resolve(__dirname, './build'),
@@ -34,7 +35,7 @@ module.exports = {
         clean: true
     },
     resolve: {
-        extensions: [ '.js', '.jsx' ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         modules: [
             'node_modules',
             './src'
@@ -45,6 +46,7 @@ module.exports = {
             '@containers': [path.resolve(__dirname, './src/containers')],
             '@utils': [path.resolve(__dirname, './src/utils')],
             '@constants': [path.resolve(__dirname, './src/constants')],
+            '@types': [path.resolve(__dirname,'./src/types/types')],
         }
     },
     devServer: {

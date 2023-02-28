@@ -1,5 +1,14 @@
-import '../src/styles/global.css';
+import { GlobalStyles } from "../src/styles/GlobalStyles";
+
+export const decorators = [
+    Story => (
+      <>
+        <GlobalStyles />
+        <Story />
+      </>
+    ),
+];
 
 export const parameters = {
-    actions: { argTypesRegex: '^on.*' }
+  actions: { argTypesRegex: '^on.*' }
 }
