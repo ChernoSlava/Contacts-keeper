@@ -1,4 +1,6 @@
-.ContactCard {
+import styled from 'styled-components';
+
+export const ContactCardStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -6,19 +8,15 @@
     background-color: lightgrey;
     border: 1px solid grey;
     min-height: 150px;
-}
-
-.ContactCard__header {
+`;
+export const ContactCardHeader = styled.div`
     display: flex;
     justify-content: space-between;
-
-}
-
-.ContactCard__name {
+`;
+export const ContactCardName = styled.div`
     color: rgb(1, 118, 202);
-}
-
-.ContactCard__type {
+`;
+export const ContactCardType = styled.div`
     color: white;
     background-color: green;
     border-radius: 4px;
@@ -26,18 +24,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.ContactCard__email {
+`;
+export const ContactCardEmail = styled.div`
     color: gray;
-}
-
-.ContactCard__phone {
+`;
+export const ContactCardPhone = styled.div`
     color: gray;
-}
-
-.ContactCard__buttons {
+`;
+export const ContactCardButtons = styled.div`
     display: flex;
     gap: 5px;
     justify-content: flex-start;
-}
+`;

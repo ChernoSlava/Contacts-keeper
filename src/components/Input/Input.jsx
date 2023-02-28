@@ -1,9 +1,16 @@
 import React from "react";
+import { InputStyled } from './styled';
 
-import styles from './Input.css'
-
-export const Input = ({type, placeholder, ...props}) => {
-    return (
-        <input className={styles.Input} type={type || 'text'} {...type === 'tel' ? {pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}"} : {}} placeholder={type === 'tel' ? 'xxx-xxx-xxxx' : placeholder} {...props}></input>
-    );
+export const Input = ({ type, placeholder, ...props }) => {
+  return (
+    <InputStyled 
+      type={type || 'text'} 
+      {...type === 'tel' 
+      ? 
+      { pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}" } 
+      : 
+      {}} placeholder={type === 'tel' ? 'xxx-xxx-xxxx' : placeholder} 
+      {...props}
+      ></InputStyled>
+  );
 }

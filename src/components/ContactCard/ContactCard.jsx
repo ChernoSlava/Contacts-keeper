@@ -1,20 +1,29 @@
 import React from "react";
 import { Button } from "../Button";
-import styles from './ContactCard.css';
+
+import { 
+  ContactCardStyled, 
+  ContactCardHeader, 
+  ContactCardName, 
+  ContactCardType, 
+  ContactCardEmail, 
+  ContactCardPhone, 
+  ContactCardButtons 
+} from './styled';
 
 export const ContactCard = ({ name, email, phone, type, onRemove, onEdit }) => {
-    return (
-        <div className={styles.ContactCard}>
-            <div className={styles.ContactCard__header}>
-                <div className={styles.ContactCard__name}>{name}</div>
-                <div className={styles.ContactCard__type}>{type}</div>
-            </div>
-            <div className={styles.ContactCard__email}>{email}</div>
-            <div className={styles.ContactCard__phone}>{phone}</div>
-            <div className={styles.ContactCard__buttons}>
-                <Button type='edit' title='Edit' onClick={onEdit}/>
-                <Button type='remove' title='Remove'onClick={onRemove}/>
-            </div>
-        </div>
-    );
+  return (
+    <ContactCardStyled>
+      <ContactCardHeader>
+        <ContactCardName>{name}</ContactCardName>
+        <ContactCardType>{type}</ContactCardType>
+      </ContactCardHeader>
+      <ContactCardEmail>{email}</ContactCardEmail>
+      <ContactCardPhone>{phone}</ContactCardPhone>
+      <ContactCardButtons>
+        <Button type='edit' title='Edit' onClick={onEdit} />
+        <Button type='remove' title='Remove' onClick={onRemove} />
+      </ContactCardButtons>
+    </ContactCardStyled>
+  );
 }
