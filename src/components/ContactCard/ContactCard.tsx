@@ -1,3 +1,4 @@
+import { actionType } from "@constants";
 import React from "react";
 import { Button } from "../Button";
 
@@ -11,7 +12,14 @@ import {
   ContactCardButtons 
 } from './styled';
 
-export const ContactCard = ({ name, email, phone, type, onRemove, onEdit }) => {
+export const ContactCard: React.FC<{
+  name: string;
+  email: string;
+  phone: string;
+  onRemove: () => void;
+  onEdit: () => void;
+  type: string;
+}> = ({ name, email, phone, type, onRemove, onEdit }): JSX.Element => {
   return (
     <ContactCardStyled>
       <ContactCardHeader>

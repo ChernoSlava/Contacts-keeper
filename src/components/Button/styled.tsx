@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<{
+  renderType: 'add'|'remove'|'edit';
+}>`
     background-color: transparent;
     border: none;
     width: 100%;

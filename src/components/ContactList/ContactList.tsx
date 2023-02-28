@@ -2,10 +2,14 @@ import React from "react";
 import { ContactListStyled } from './styled'
 import { ContactCard } from '../ContactCard';
 
-export const ContactList = ({ items, onRemove, onEdit }) => {
+export const ContactList: React.FC<{
+  items: [];
+  onRemove: (x: number) => void;
+  onEdit: (x: number) => void;
+}> = ({ items, onRemove, onEdit }): JSX.Element => {
   return (
     <ContactListStyled>
-      {items?.map((x) =>
+      {items?.map((x: any) =>
         <ContactCard
           key={x.id}
           name={x.name}
