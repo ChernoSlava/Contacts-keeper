@@ -1,5 +1,5 @@
-import React from "react";
-import { ContactListStyled } from './styled'
+import React from 'react';
+import { ContactListStyled } from './styled';
 import { ContactCard } from '../ContactCard';
 
 export const ContactList: React.FC<{
@@ -9,7 +9,7 @@ export const ContactList: React.FC<{
 }> = ({ items, onRemove, onEdit }): JSX.Element => {
   return (
     <ContactListStyled>
-      {items?.map((x: any) =>
+      {items?.map((x: any) => (
         <ContactCard
           key={x.id}
           name={x.name}
@@ -17,9 +17,9 @@ export const ContactList: React.FC<{
           phone={x.phone}
           type={x.type}
           onRemove={() => onRemove(x.id)}
-          onEdit={() => onEdit(x.id)} />
-      )
-      }
+          onEdit={() => onEdit(x.id)}
+        />
+      ))}
     </ContactListStyled>
   );
-}
+};

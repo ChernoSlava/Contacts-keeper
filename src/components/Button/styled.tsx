@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const ButtonStyled = styled.button<{
-  renderType: 'add'|'remove'|'edit';
+  renderType: 'add' | 'remove' | 'edit';
 }>`
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    height: 38px;
-    cursor: pointer;
-    color: white;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 38px;
+  cursor: pointer;
+  color: white;
   ${props =>
     props.renderType === 'add' &&
     `
